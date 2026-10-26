@@ -17,3 +17,28 @@ def add_sin_waves(frequency_hz_one: int, frequency_hz_two:int, duration_seconds:
     sf.write("sine_wav.wav",normalized_wave,sample_rate)
 
 add_sin_waves(5,10,2,44100)
+
+def fade_in_out(audio_arr: NDArray, N: int) -> NDArray:
+    audio_faded = audio_arr.copy()
+    fade_in = np.linspace(0.0, 1.0, N)
+    fade_out = np.linspace(1.0, 0.0, N)
+
+    audio_faded[:N] *= fade_in
+    audio_faded[-N:] *= fade_out
+
+    return audio_faded
+
+
+# Create a sample audio array
+audio = np.ones(10, dtype=float)
+
+# Apply a fade-in and fade-out over 3 samples
+faded_audio = fade_in_out(audio, 3)
+
+# Print the results
+print("Original audio:", audio)
+print("Faded audio:   ", faded_audio)
+
+def compute_fft():
+    pass
+    
