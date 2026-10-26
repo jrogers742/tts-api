@@ -1,0 +1,23 @@
+[project]
+name = "tts-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "jupyter>=1.1.1",
+    "librosa>=1.0.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "scipy>=1.18.1",
+    "soundfile>=0.14.0",
+    "torch>=2.14.1",
+    "tqdm>=4.70.1",
+]
+
+[project.scripts]
+tts-api = "tts_api:main"
+
+[build-system]
+requires = ["uv_build>=0.13.4,<0.14.0"]
+build-backend = "uv_build"
